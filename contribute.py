@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+
+import json
 import argparse
 import os
 from datetime import datetime, timedelta
@@ -24,6 +26,25 @@ def arguments(argsval):
                         help="""Overrides user.email git config.
                         If not specified, the global config is used.""")
     return parser.parse_args(argsval)
+
+
+def validate_data(json_data):
+    """
+    check json data format
+    """
+    for data in json_data:
+        if len(data) != 2:
+            return 'Wrong array format'
+        date, freq = data
+        if not isinstance(date, str) or not isinstance(freq, int):
+            return 'Worng data type, it should be [String, Integer]'
+        if freq < 1:
+            return 'Wrong frequency, it should be 0 < value'
+        try:
+            datetime.strptime(date, '%Y-%m-%d')
+        except ValueError:
+            return 'Worng date format'
+    return True
 
 
 def run(commands):
@@ -55,13 +76,21 @@ def main(def_args=None):
         def_args = sys.argv[1:]
     args = arguments(def_args)
     repo_path = args.repo_path
-    date_string = '2023-11-0'
-    commit_num = 10
     if repo_path is not None:
         # get repository name
         start = repo_path.rfind('/') + 1
         end = repo_path.rfind('.')
         repo = repo_path[start:end]
+
+    json_file = 'data.json'
+    with open(json_file, encoding='utf-8') as file:
+        json_data = json.load(file)
+
+    # Check data.json format
+    validate_result = validate_data(json_data)
+    if validate_data(json_data) is not True:
+        print(validate_result, file=sys.stderr)
+        sys.exit(1)
 
     # Auto generating "git commit"
     os.mkdir(repo)
@@ -71,16 +100,13 @@ def main(def_args=None):
         run(['git', 'config', 'user.name', args.user_name])
     if args.user_email is not None:
         run(['git', 'config', 'user.email', args.user_email])
-    # yars ago 20:00
-    target_date = datetime.strptime(date_string, '%Y-%m-%d')
-    date_with_time = target_date.replace(hour=12)
 
-    # for day in (start_date + timedelta(n) for n
-    #             in range(365)):
-
-    for m in range(commit_num):
-        commit_time = date_with_time + timedelta(minutes=m)
-        contribute(commit_time)
+    for data in json_data:
+        date, freq = data
+        date_time = datetime.strptime(date, '%Y-%m-%d').replace(hour=12)
+        for minutes in range(freq):
+            commit_time = date_time + timedelta(minutes=minutes)
+            contribute(commit_time)
 
     # Auto generating "git push"
     run(['git', 'remote', 'add', 'origin', repo_path])
