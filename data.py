@@ -101,43 +101,82 @@ def get_days_in_month(year, month):
     return 31
 
 
+def get_days_in_year(target_year, entered_day):
+    """
+    Set target day
+    """
+
+    dates = []
+
+    for month in range(1, 13):
+        for day in range(1, get_days_in_month(target_year, month) + 1):
+            date = datetime.date(target_year, month, day)
+            if entered_day == 0:
+                if date.weekday() < 5:  # weekdays
+                    dates.append(day)
+            elif entered_day == 32:
+                if date.weekday() >= 5:  # weekend
+                    dates.append(day)
+            else:
+                dates.append(day)
+
+    return dates
+
+
+def get_data_per_month(target_year, target_month, entered_day,
+                       is_freq_random, entered_freq):
+    """
+    Set target day
+    """
+    data = []
+
+    if entered_day == 0:  # weekdays
+        target_days = [f"{i:02d}" for i in range(1, get_days_in_month(
+            target_year, target_month) + 1)
+            if datetime.date(target_year, target_month, i).weekday() < 5]
+    elif entered_day == 32:  # weekend
+        target_days = [f"{i:02d}" for i in range(1, get_days_in_month(
+            target_year, target_month) + 1)
+            if datetime.datetime(
+            target_year, target_month, i).weekday() >= 5]
+    else:
+        target_days = [f"{i:02d}" for i in range(1, get_days_in_month(
+            target_year, target_month) + 1)]
+
+    for day in target_days:
+        date_string = f"{target_year}-{target_month:02d}-{day}"
+        if is_freq_random == 'Y':
+            data.append([date_string, random.randint(1, entered_freq)])
+        else:
+            data.append([date_string, entered_freq])
+
+    return data
+
+
 def main():
     """
     main
     """
     # Set target year
-    year = get_year_from_command_line()
-    month = get_month_from_command_line()
-    day = get_day_from_command_line()
+    target_year = get_year_from_command_line()
+    entered_month = get_month_from_command_line()
+    entered_day = get_day_from_command_line()
     is_freq_random = is_freq_random_from_command_line()
-    freq = get_freq_from_command_line(is_freq_random)
+    entered_freq = get_freq_from_command_line(is_freq_random)
+    all_data = []
 
-    data = []
+    if entered_month == 99:  # every month
+        for month in range(1, 13):
+            print(month)
+            data = get_data_per_month(target_year, month, entered_day,
+                                      is_freq_random, entered_freq)
+            all_data.extend(data)
 
-    if month == 99:
-        days = [str(i) for i in range(
-            1, 367 if (year % 4 == 0 and (year % 100 != 0 or year % 400 == 0))
-            else 366)]
-    elif day == 0:
-        days = [str(i) for i in range(1, 32) if datetime.datetime(
-            year, month, i).weekday() < 5]
-    elif day == 32:
-        days = [str(i) for i in range(1, 32) if datetime.datetime(
-            year, month, i).weekday() >= 5]
-    else:
-        days = [str(i) for i in range(1, get_days_in_month(year, month) + 1)]
+    else:  # target one month
+        all_data = get_data_per_month(target_year, entered_month, entered_day,
+                                      is_freq_random, entered_freq)
 
-    for day in days:
-        date_string = f"{year}-{month:02d}-{day:02d}"
-        if is_freq_random == 'Y':
-            data.append([date_string, random.randint(1, freq)])
-        else:
-            data.append([date_string, freq])
-
-    # dataをJSON形式に変換
-    json_data = json.dumps(data)
-
-    # data.jsonファイルにJSONデータを書き込む
+    json_data = json.dumps(all_data)
     with open('data.json', 'w', encoding='utf-8') as file:
         file.write(json_data)
 
