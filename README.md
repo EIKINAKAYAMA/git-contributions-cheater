@@ -11,7 +11,7 @@
 
 
 <p align="center">
-  
+  <img width="879" alt="スクリーンショット 2023-06-06 23 23 25" src="https://github.com/EIKINAKAYAMA/git-contributions-cheater/assets/65437818/164f75d8-bc13-4ef0-a89b-e5841b08edc7">
 </p>
 <p align="center">
     <em>GitHub contributions cheater, Manipulate your inteview and change your feature</em>
@@ -52,7 +52,14 @@ Note: It might takes several minutes for GitHub to reindex your activity.
 
 # Usage -data.py-
 1. python data/data.py
-2. There are several questions for getting preferences of you contributions.
+2. There are several questions for getting preferences of you contributions so refer following and answer.
+
+- Contribution Date setting Logic
+
+![スクリーンショット 2023-06-07 0 44 34](https://github.com/EIKINAKAYAMA/git-contributions-cheater/assets/65437818/605febfd-c39b-4127-8f82-6db1ff6a4e41)
+
+- Contribution Number setting Logic
+![スクリーンショット 2023-06-07 0 44 23](https://github.com/EIKINAKAYAMA/git-contributions-cheater/assets/65437818/2883e39b-5f00-4d00-a1e9-b84822f5c50b)
 
 
 ## How it works
