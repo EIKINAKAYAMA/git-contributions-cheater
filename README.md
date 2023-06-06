@@ -59,7 +59,7 @@ Note: It might takes several minutes for GitHub to reindex your activity.
 ![スクリーンショット 2023-06-07 0 44 34](https://github.com/EIKINAKAYAMA/git-contributions-cheater/assets/65437818/605febfd-c39b-4127-8f82-6db1ff6a4e41)
 
 - Contribution Number setting Logic
-![スクリーンショット 2023-06-07 0 44 23](https://github.com/EIKINAKAYAMA/git-contributions-cheater/assets/65437818/2883e39b-5f00-4d00-a1e9-b84822f5c50b)
+<img width="927" alt="スクリーンショット 2023-06-07 0 51 50" src="https://github.com/EIKINAKAYAMA/git-contributions-cheater/assets/65437818/f8f18000-53db-4f8f-b1b3-c5e89bfdc61e">
 
 
 ## How it works
