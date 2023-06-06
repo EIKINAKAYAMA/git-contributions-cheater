@@ -20,7 +20,7 @@ def test_data_generation_case1():
 def test_data_generation_case2():
     target_year = 2022
     target_month = 2
-    entered_day = 32  # weekend
+    entered_day = 32  # weekends
     is_freq_random = 'N'
     entered_freq = 10
 

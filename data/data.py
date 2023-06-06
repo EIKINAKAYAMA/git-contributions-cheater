@@ -37,7 +37,7 @@ def get_day_from_command_line():
     while True:
         try:
             day_input = input(
-                "Enter day(Enter: alldays, 0: weekdays, 32: weekend): ")
+                "Enter day(Enter: alldays, 0: weekdays, 32: weekends): ")
             if day_input.strip() == "":
                 return 99
             day = int(day_input)
@@ -92,7 +92,7 @@ def get_data_per_month(target_year, target_month, entered_day,
         target_days = [f"{i:02d}" for i in range(1, get_days_in_month(
             target_year, target_month) + 1)
             if datetime.date(target_year, target_month, i).weekday() < 5]
-    elif entered_day == 32:  # weekend
+    elif entered_day == 32:  # weekends
         target_days = [f"{i:02d}" for i in range(1, get_days_in_month(
             target_year, target_month) + 1)
             if datetime.datetime(
