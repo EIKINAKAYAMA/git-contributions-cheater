@@ -9,9 +9,6 @@ import sys
 
 
 def arguments(argsval):
-    """
-    メイン関数です。引数を処理し、リポジトリ名と設定値を取得します。
-    """
     parser = argparse.ArgumentParser()
     parser.add_argument('-np', '--repo_path', type=str, required=False,
                         help="""A link on an empty non-initialized remote git
@@ -29,9 +26,6 @@ def arguments(argsval):
 
 
 def validate_data(json_data):
-    """
-    check json data format
-    """
     for data in json_data:
         if len(data) != 2:
             return 'Wrong array format'
@@ -48,17 +42,15 @@ def validate_data(json_data):
 
 
 def run(commands):
-    """
-    run command on commandline
-    """
     with subprocess.Popen(commands) as process:
         process.wait()
 
 
+def message(date):
+    return date.strftime('Contribution: %Y-%m-%d %H:%M')
+
+
 def contribute(date):
-    """
-    create contribute
-    """
     with open(
         os.path.join(os.getcwd(), 'README.md'), 'a', encoding='utf-8'
     ) as file:
@@ -69,9 +61,6 @@ def contribute(date):
 
 
 def main(def_args=None):
-    """
-    main
-    """
     if def_args is None:
         def_args = sys.argv[1:]
     args = arguments(def_args)
@@ -82,7 +71,7 @@ def main(def_args=None):
         end = repo_path.rfind('.')
         repo = repo_path[start:end]
 
-    json_file = 'data.json'
+    json_file = 'data/data.json'
     with open(json_file, encoding='utf-8') as file:
         json_data = json.load(file)
 
@@ -115,13 +104,6 @@ def main(def_args=None):
 
     print('\nRepository generation ' +
           '\x1b[6;30;42mcompleted successfully\x1b[0m!')
-
-
-def message(date):
-    """
-    メイン関数です。引数を処理し、リポジトリ名と設定値を取得します。
-    """
-    return date.strftime('Contribution: %Y-%m-%d %H:%M')
 
 
 if __name__ == "__main__":
