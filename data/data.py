@@ -133,10 +133,7 @@ def main():
 
     json_data = json.dumps(all_data)
 
-    # 実行中のPythonスクリプトの絶対パスを取得
     script_path = os.path.abspath(__file__)
-
-    # スクリプトのディレクトリパスを取得
     script_directory = os.path.dirname(script_path)
     file_path = os.path.join(script_directory, 'data.json')
     with open(file_path, 'w', encoding='utf-8') as file:

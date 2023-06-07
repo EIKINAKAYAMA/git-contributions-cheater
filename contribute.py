@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 
-import json
 import argparse
+import json
 import os
-from datetime import datetime, timedelta
 import subprocess
 import sys
+from datetime import datetime, timedelta
 
 
 def arguments(argsval):
     parser = argparse.ArgumentParser()
-    parser.add_argument('-np', '--repo_path', type=str, required=False,
+    parser.add_argument('-np', '--repo_path', type=str, required=True,
                         help="""A link on an empty non-initialized remote git
                         repository. If specified, the script pushes the changes
                         to the repository. The link is accepted in SSH or HTTPS
