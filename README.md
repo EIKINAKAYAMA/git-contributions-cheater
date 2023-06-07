@@ -39,6 +39,8 @@ There is a sample.json in data folder, so you can customize "data.json" whatever
 Once the commits are generated it links the created repository with
 the remote repository and pushes the changes.
 
+- [Example](https://github.com/EIKINAKAYAMA/example-git-contributions-cheater)
+
 
 # Usage -contribution.py-
 
