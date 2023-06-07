@@ -28,10 +28,9 @@
 [![Twitter](https://img.shields.io/badge/--FFFFFF?style=social&logo=twitter&label=Follow%20EIKINAKAYAMA)](https://twitter.com/@eiki111ixa)
 
 ### Before :neutral_face: :no_mouth: :unamused: 
-![Before]()
-### After :muscle: :relieved: :heart: :sunglasses: :metal: :horse: :wink: :fire: :dancer: :santa: :fireworks: :cherries: :tada:
-![After]()
-
+![スクリーンショット 2023-06-07 15 33 10](https://github.com/EIKINAKAYAMA/git-contributions-cheater/assets/65437818/ad26a0fe-13d4-4358-bd18-5720c5125dc0)
+### After :muscle: :relieved: :heart: :sunglasses: :metal: :wink: :fire: :dancer: :fireworks: :tada:
+![スクリーンショット 2023-06-07 15 35 58](https://github.com/EIKINAKAYAMA/git-contributions-cheater/assets/65437818/338eb365-2aa1-4879-bad4-21492e1ee85a)
 # How it works
 The contribution.py script initializes an empty git repository, creates a text file and starts generating changes to the file **according to "data.json"**.
 
