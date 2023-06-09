@@ -46,6 +46,9 @@ the remote repository and pushes the changes.
 - [Example of dataByAnswer](https://github.com/EIKINAKAYAMA/ex-answer-git-contributions-cheater)
 - [Example of dataByText](https://github.com/EIKINAKAYAMA/ex-text-git-contributions-cheater)
 
+Note: The dataByText.py's is only support Japanese and English now.
+If you have other language's nice 8 bit font, please let me know and let's enhancement! :fire:
+
 
 # Usage -contribution.py-
 
