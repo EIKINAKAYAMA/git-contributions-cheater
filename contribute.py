@@ -92,18 +92,19 @@ def main(def_args=None):
 
     for data in json_data:
         date, freq = data
-        date_time = datetime.strptime(date, '%Y-%m-%d').replace(hour=12)
+        date_time = datetime.strptime(
+            date, '%Y-%m-%d').replace(hour=0)
         for minutes in range(freq):
             commit_time = date_time + timedelta(minutes=minutes)
             contribute(commit_time)
+
+    print('\nAuto commited repository is generated ' +
+          '\x1b[6;30;42mcompleted successfully\x1b[0m!')
 
     # Auto generating "git push"
     run(['git', 'remote', 'add', 'origin', repo_path])
     run(['git', 'branch', '-M', 'main'])
     run(['git', 'push', '-u', 'origin', 'main'])
-
-    print('\nRepository generation ' +
-          '\x1b[6;30;42mcompleted successfully\x1b[0m!')
 
 
 if __name__ == "__main__":

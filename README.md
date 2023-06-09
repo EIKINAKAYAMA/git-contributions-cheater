@@ -34,7 +34,7 @@
 # How it works
 The contribution.py script initializes an empty git repository, creates a text file and starts generating changes to the file **according to "data.json"**.
 
-There is a sample.json in data folder, so you can customize "data.json" whatever you want, also **the data.py supports creating your own data.json**, just answering a few quetions.
+There is a sample.json in data folder, so you can customize "data.json" whatever you want, also **the dataByAnswer.py supports creating your own data.json**, just answering a few quetions.
 
 Once the commits are generated it links the created repository with
 the remote repository and pushes the changes.
@@ -46,7 +46,7 @@ the remote repository and pushes the changes.
 
 1. Create an empty GitHub repository. Do not initialize it.
 2. Download [this repo](https://github.com/EIKINAKAYAMA/git-contributions-cheater/archive/main.zip) and unzip.
-3. Setting "data.json"  ([Usage -data.py-](#Usage-data.py-))
+3. Setting "data.json"  ([Usage -dataByAnswer.py-](#Usage-dataByAnswer.py-))
 4. Run following command.
 ```sh
 python contribute.py --repository=git@github.com:${user}/${repo}.git
@@ -59,11 +59,11 @@ Then you have a repository with lots of changes in your GitHub account.
 Note: It might takes several minutes for GitHub to reindex your activity.
 
 
-# Usage -data.py-
+# Usage -dataByAnswer.py-
 
 1.  Run following command.
 ```sh
-python data/data.py
+python data/dataByAnswer.py
 ```
 2. There are several questions for getting preferences of your contributions, please refer following and answer it.
 
@@ -89,4 +89,3 @@ able to see what exactly.
 ## License
 
 [Apache License 2.0](LICENSE)
-

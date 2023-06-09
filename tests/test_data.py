@@ -1,4 +1,4 @@
-from data.data import get_data_per_month
+from data.dataByAnswer import get_data_per_month
 
 
 def test_data_generation_case1():
