@@ -29,43 +29,52 @@
 
 ### Before :neutral_face: :no_mouth: :unamused: 
 ![スクリーンショット 2023-06-07 15 33 10](https://github.com/EIKINAKAYAMA/git-contributions-cheater/assets/65437818/ad26a0fe-13d4-4358-bd18-5720c5125dc0)
-### After :muscle: :relieved: :heart: :sunglasses: :metal: :wink: :fire: :dancer: :fireworks: :tada:
+### After by dataByAnswer :muscle: :relieved: :sunglasses: :metal: :wink: :fire: :dancer: :fireworks: :tada:
 ![スクリーンショット 2023-06-07 15 35 58](https://github.com/EIKINAKAYAMA/git-contributions-cheater/assets/65437818/338eb365-2aa1-4879-bad4-21492e1ee85a)
+### After by dataByText :heart: :heart: :heart: :heart: :heart: :heart: :heart:
+![スクリーンショット 2023-06-09 10 40 04](https://github.com/EIKINAKAYAMA/git-contributions-cheater/assets/65437818/97bb0edb-fd16-4654-aa4d-299f3a7da2a9)
+
+
 # How it works
 The contribution.py script initializes an empty git repository, creates a text file and starts generating changes to the file **according to "data.json"**.
 
-There is a sample.json in data folder, so you can customize "data.json" whatever you want, also **the data.py supports creating your own data.json**, just answering a few quetions.
+There is a sample.json in data folder, so you can customize "data.json" whatever you want, also **the dataByAnswer.py and dataByText makes  creating your own data.json easily**, just following rules.
 
 Once the commits are generated it links the created repository with
 the remote repository and pushes the changes.
 
-- [Example](https://github.com/EIKINAKAYAMA/example-git-contributions-cheater)
+- [Example of dataByAnswer](https://github.com/EIKINAKAYAMA/ex-answer-git-contributions-cheater)
+- [Example of dataByText](https://github.com/EIKINAKAYAMA/ex-text-git-contributions-cheater)
+
+Note: The dataByText.py's is only support Japanese and English now.
+If you have other language's nice 8 bit font, please let me know and let's enhancement! :fire:
 
 
 # Usage -contribution.py-
 
 1. Create an empty GitHub repository. Do not initialize it.
 2. Download [this repo](https://github.com/EIKINAKAYAMA/git-contributions-cheater/archive/main.zip) and unzip.
-3. Setting "data.json"  ([Usage -data.py-](#Usage-data.py-))
+3. Setting "data.json"  ([Usage -dataByAnswer.py-](#Usage-dataByAnswer.py-)) ([Usage -dataByText.py-](#Usage-dataByText.py-))
 4. Run following command.
 ```sh
-python contribute.py --repository=git@github.com:${user}/${repo}.git
+python contribute.py --repository=git@github.com:${your_user_name}/${your_repo}.git
 ```
 ex.
 ```sh
-ex:python contribute.py --repo_path=git@github.com:EIKINAKAYAMA/example-git-contributions-cheater.git
+python contribute.py --repo_path=git@github.com:EIKINAKAYAMA/ex-answer-git-contributions-cheater.git
 ```
 Then you have a repository with lots of changes in your GitHub account.
 Note: It might takes several minutes for GitHub to reindex your activity.
 
 
-# Usage -data.py-
+# Usage -dataByAnswer.py- (Option: Support creating your realistic commit)
 
 1.  Run following command.
 ```sh
-python data/data.py
+python data/dataByAnswer.py
 ```
 2. There are several questions for getting preferences of your contributions, please refer following and answer it.
+3. You get the data in data.json
 
 - Contribution Date setting Logic
 
@@ -74,6 +83,16 @@ python data/data.py
 - Contribution Number setting Logic
 <img width="927" alt="スクリーンショット 2023-06-07 0 51 50" src="https://github.com/EIKINAKAYAMA/git-contributions-cheater/assets/65437818/f8f18000-53db-4f8f-b1b3-c5e89bfdc61e">
 
+# Usage -dataByText.py- (Option: Support creating your funny commit)
+1.  Run following command.
+```sh
+python data/dataByText.py --start_date=${your_start_day} --commit_text='${your_text}'  
+```
+ex.
+```sh
+python data/dataByText.py --start_date=2001-01-08 --commit_text='Hi, Hello!' 
+```
+2. You get the data in data.json.
 
 ## Making contributions private
 Note: This script doesn't encourage you to cheat. Cheating is bad. But if anybody
@@ -87,6 +106,19 @@ This way GitHub users will see that you contributed something, but they won't be
 able to see what exactly.
 
 ## License
+This Program License
 
 [Apache License 2.0](LICENSE)
 
+### Acknowledgment
+The idea of text generation is based on git-turf created by SATO, Yoshiyuki. Thank you so much.
+
+License of text generation program
+
+https://github.com/yoshi389111/git-turf#program
+
+License of fonts
+
+https://littlelimit.net/font.htm
+
+These fonts are free software. Unlimited permission is granted to use, copy, and distribute them, with or without modification, either commercially or noncommercially. THESE FONTS ARE PROVIDED "AS IS" WITHOUT WARRANTY.
